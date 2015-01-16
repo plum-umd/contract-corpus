@@ -1,0 +1,31 @@
+((module f racket
+  (provide (contract-out [f (positive? . -> . positive?)]))
+
+  (define (positive? x)
+    (and (integer? x) (<= 0 x)))
+  
+  (define (divides a b)
+    (cond [(= 0 b) #t]
+          [(< b a) #f]
+          [else (divides a (- b a))]))
+
+  (define (any-divides xs x)
+    (cond [(empty? xs) #f]
+          [else (or (divides (car xs) x) (any-divides (cdr xs) x))]))
+ 
+  (define (sum-from init limit step mods)
+    (cond [(<= limit init) 0]
+          [(any-divides mods init) (sum-from (+ init step) limit step mods)]
+          [else (+ init (sum-from (+ init step) limit step mods))]))
+
+ 
+   
+))
+
+#|Result:
+#<void>
+
+Program is safe
+Program is safe
+
+|#
