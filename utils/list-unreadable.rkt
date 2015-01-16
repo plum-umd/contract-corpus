@@ -1,4 +1,7 @@
 #lang racket
+
+;; Lists unreadable files with .rkt or .sch extensions.
+
 ;; path? -> boolean?
 ;; Is the file completely readable with read?
 (define (readable? p)
@@ -14,8 +17,14 @@
 (unless (zero? (vector-length (current-command-line-arguments)))
   (current-directory (vector-ref (current-command-line-arguments) 0)))
 
-(for ([p (in-directory)]
+(define (racket-file? p)
+  (define ext (filename-extension p))
+  (or (equal? #"rkt" ext)
+      (equal? #"sch" ext)))
+
+(for ([p (in-list (directory-list))]
       #:unless (directory-exists? p)
+      #:when (racket-file? p)
       #:unless (readable? p))
   (display (path->complete-path p))
   (newline))
