@@ -1,26 +1,10 @@
 #lang racket
+(require "shared.rkt")
 
 ;; Lists unreadable files with .rkt or .sch extensions.
 
-;; path? -> boolean?
-;; Is the file completely readable with read?
-(define (readable? p)
-  (define (read! in)
-    (define next (read in))
-    (or (eof-object? next)
-        (read! in)))
-  (define (read? p)
-    (with-handlers ([exn:fail:read? (λ (x) #f)])
-      (read! p)))
-  (call-with-input-file p read?))
-
 (unless (zero? (vector-length (current-command-line-arguments)))
   (current-directory (vector-ref (current-command-line-arguments) 0)))
-
-(define (racket-file? p)
-  (define ext (filename-extension p))
-  (or (equal? #"rkt" ext)
-      (equal? #"sch" ext)))
 
 (for ([p (in-list (directory-list))]
       #:unless (directory-exists? p)
