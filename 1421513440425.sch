@@ -9,11 +9,3 @@
 
 
 )
-
-#|Result:
-#<void>
-->i: Please specify full dependency (x y) instead of (x) for now
-  
-Program is safe
-
-|#

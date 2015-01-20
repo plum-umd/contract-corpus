@@ -20,16 +20,3 @@
 (equal? (gcd2 17 10) 1)
 (equal? (gcd2 60 10) 10)
 (equal? (gcd2 30 45) 15)))
-
-#|Result:
-#<void>
-Parser: Expect one of:
- (require (submod ".." module-name) …)
- (provide/contract (x c) …)
- (define x v)
- (struct name (field …))
-.Given:
-(equal? (gcd2 0 1337) 1337)
-  
-
-|#

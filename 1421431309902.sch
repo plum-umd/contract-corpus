@@ -9,17 +9,3 @@
         (+ (fib (- n 1)) (fib (- n 2))))))
 
 )
-
-#|Result:
-#<void>
-Contract violation: 'fib' violates '/'.
-Value
- 0
-violates predicate
- (≠/c 0)
-
-
-  
-Program is safe
-
-|#

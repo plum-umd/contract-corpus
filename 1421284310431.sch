@@ -7,10 +7,3 @@
         (if (even? n)
             (f (/ n 2))
             (f (+ 1 (/ n 3))))))))
-
-#|Result:
-#<void>
-with-limit: out of time
-  
-
-|#

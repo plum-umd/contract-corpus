@@ -16,17 +16,3 @@
 (module main racket
   (require (submod ".." argmin))
   (argmin (lambda (x) 0+1i) (cons 1 (cons 1 empty)))))
-
-#|Result:
-#<void>
-Parser: expect one of:
- (require (submod ".." module-name) …)
- (provide provide-spec …)
- (define x v)
- (struct id (id …))
-given:
-(argmin (lambda (x) 0+1i) (cons 1 (cons 1 empty)))
-  
-Program is safe
-
-|#

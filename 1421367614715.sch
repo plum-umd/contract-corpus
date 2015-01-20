@@ -20,11 +20,3 @@
   
   
 ))
-
-#|Result:
-#<void>
-Parser: Unknown symbol stream-empty? in module f
-  
-Program is safe
-
-|#

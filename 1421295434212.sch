@@ -8,16 +8,3 @@
 (module a racket
   (require (submod ".." fact))
 (factorial 5)	))
-
-#|Result:
-#<void>
-Parser: expect one of:
- (require (submod ".." module-name) …)
- (provide provide-spec …)
- (define x v)
- (struct id (id …))
-given:
-(factorial 5)
-  
-
-|#

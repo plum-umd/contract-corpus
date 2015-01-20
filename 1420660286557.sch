@@ -11,17 +11,3 @@
 (require 'f)
 (f 98)
 )
-
-#|Result:
-#<void>
-Contract violation: 'f' violates its own contract.
-Value
- 1.0
-violates predicate
- integer?
-An example module that breaks it:
- (module user racket (require (submod ".." f)) (f 99))
-
-  
-
-|#

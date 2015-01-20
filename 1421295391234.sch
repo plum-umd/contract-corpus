@@ -4,10 +4,3 @@
         1
         (* x (factorial (sub1 x)))))
   (provide (contract-out [factorial (-> number? number?)]))))
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

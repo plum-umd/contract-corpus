@@ -5,11 +5,3 @@
           (* x (factorial (sub1 x)))))
     (provide (contract-out [factorial (-> (>=/c 0) (>=/c 0))])))
   )
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

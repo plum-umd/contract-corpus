@@ -21,10 +21,3 @@
         (while ((cur "get-child") (path "hd"))
           (path "tl"))
         cur))))
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

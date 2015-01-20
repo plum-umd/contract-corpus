@@ -13,11 +13,3 @@
 
 
 ))
-
-#|Result:
-#<void>
-with-limit: out of time
-  
-Program is safe
-
-|#

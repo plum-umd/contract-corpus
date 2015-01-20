@@ -8,10 +8,3 @@
     (if (empty? fs) 
         5
         ((car fs) 4)))))
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

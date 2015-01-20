@@ -5,11 +5,3 @@
 
   (define (f x y)
     (+ x y))))
-
-#|Result:
-#<void>
-->i: Please specify full dependency (x) instead of (x y) for now
-  
-Program is safe
-
-|#

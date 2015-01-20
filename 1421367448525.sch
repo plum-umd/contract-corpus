@@ -11,11 +11,3 @@
   
   
 ))
-
-#|Result:
-#<void>
-Parser: Unknown symbol modulo in module f
-  
-Program is safe
-
-|#

@@ -11,11 +11,3 @@
 ;(require 'fact)
 ;(factorial 5)
 )
-
-#|Result:
-#<void>
-with-limit: out of time
-  
-Program is safe
-
-|#

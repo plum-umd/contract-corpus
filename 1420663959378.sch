@@ -6,10 +6,3 @@
       [(= 0 n) 0]
       [(= 1 n) 1]
       [else (+ (f (- n 1)) (f (- n 2)))]))))
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

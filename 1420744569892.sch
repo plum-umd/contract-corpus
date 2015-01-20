@@ -11,11 +11,3 @@
 (hello 20)
 
 )
-
-#|Result:
-#<void>
-hash-ref: no value found for key
-  key: 'hello
-  
-
-|#

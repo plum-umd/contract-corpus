@@ -7,11 +7,3 @@
      (contract-out 
       [factorial (-> (and/c integer? (>=/c 0)) 
                      (and/c integer? (>=/c 0)))]))))
-
-#|Result:
-#<void>
-with-limit: out of time
-  
-Program is safe
-
-|#

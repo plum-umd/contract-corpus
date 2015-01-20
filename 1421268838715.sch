@@ -18,16 +18,3 @@
  
  (require 'user)
 )
-
-#|Result:
-#<void>
-Parser: expect one of:
- (require (submod ".." module-name) …)
- (provide provide-spec …)
- (define x v)
- (struct id (id …))
-given:
-(argmin (λ (x) 0+1i) (cons 0.873 (cons 0.072 empty)))
-  
-
-|#

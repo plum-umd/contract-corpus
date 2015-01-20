@@ -5,11 +5,3 @@
         n
         (+ (fib (- n 1)) (fib (- n 2))))))
 )
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

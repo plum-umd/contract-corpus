@@ -8,11 +8,3 @@
     (cond [(= 0 b) #t]
           [(< b a) #f]
           #;[else (divides? a (- b a))]))))
-
-#|Result:
-#<void>
-Parser: Unknown symbol cond in module div
-  
-Program is safe
-
-|#

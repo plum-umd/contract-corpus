@@ -10,11 +10,3 @@
 (require 'foo)
 (div2 5)
 )
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

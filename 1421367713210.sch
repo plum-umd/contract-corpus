@@ -18,11 +18,3 @@
   
   
 ))
-
-#|Result:
-#<void>
-Parser: Unknown symbol map in module f
-  
-Program is safe
-
-|#

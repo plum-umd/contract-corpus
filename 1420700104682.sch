@@ -7,10 +7,3 @@
   
   (define (f fs)
     ((car fs) 4))))
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

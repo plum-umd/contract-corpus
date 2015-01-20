@@ -8,11 +8,3 @@
    (contract-out
     [fact (-> (and/c integer? (>=/c 4))
               (and/c integer? (>=/c 1223452345234234230)))]))))
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

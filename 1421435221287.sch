@@ -6,11 +6,3 @@
         (/ 1 (- 100 n)))))
 
 )
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

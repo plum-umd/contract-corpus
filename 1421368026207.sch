@@ -24,20 +24,3 @@
   
    
 ))
-
-#|Result:
-#<void>
-.b: contract violation
-  expected: (or/c Number #f #t Symbol String)
-  given: '()
-  in: the 1st argument of
-      (-> (or/c Number #f #t Symbol String) any)
-  contract from: 
-      /srv/www/soft-contract/lang.rkt
-  blaming: /srv/www/soft-contract/read.rkt
-   (assuming the contract is correct)
-  at: /srv/www/soft-contract/lang.rkt:22.14
-  
-Program is safe
-
-|#

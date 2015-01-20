@@ -4,12 +4,3 @@
     (+ 1 n)))
 
 (require (submod ".." f)) (f 0.255))
-
-#|Result:
-#<void>
-hash-ref: no value found for key
-  key: ".."
-  
-Program is safe
-
-|#

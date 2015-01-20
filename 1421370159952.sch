@@ -9,11 +9,3 @@
         (if (< b a) 
             #f
             #t #;(divides? a (- b a)))))))
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

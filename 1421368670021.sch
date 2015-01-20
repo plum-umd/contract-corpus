@@ -11,11 +11,3 @@
           [else (add (sub1 a) (add1 b))]))
 
 ))
-
-#|Result:
-#<void>
-with-limit: out of time
-  
-Program is safe
-
-|#

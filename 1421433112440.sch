@@ -9,19 +9,3 @@
         (plus (fib (- n 1)) (fib (- n 2))))))
 
 )
-
-#|Result:
-#<void>
-Possible contract violation: 'fib' violates its own contract.
-Value contrained by contracts
- (not/c integer?)
- (=/c (/ …₂ …₁))
- real?
-violates predicate
- integer?
-
-
-  
-Program is safe
-
-|#

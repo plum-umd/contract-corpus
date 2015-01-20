@@ -9,10 +9,3 @@
       [(number? (car extra))
        (+ (string-length input) (car extra))]
       [else 0]))))
-
-#|Result:
-#<void>
-Parser: Unknown symbol string-append in module f
-  
-
-|#

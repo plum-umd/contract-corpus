@@ -9,18 +9,3 @@
                    (lambda (x) (>= x 0)))])))
                
                )
-
-#|Result:
-#<void>
-Contract violation: 'fact' violates '>='.
-Value
- 0.007
-violates predicate
- real?
-An example module that breaks it:
- (module user racket (require (submod ".." fact)) (factorial 0.007))
-
-  
-Program is safe
-
-|#

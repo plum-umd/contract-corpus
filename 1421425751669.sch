@@ -10,18 +10,3 @@
 
 (require 'fib)
 (fib 0))
-
-#|Result:
-#<void>
-Contract violation: 'fib' violates '/'.
-Value
- 0
-violates predicate
- (≠/c 0)
-An example module that breaks it:
- (module user racket (require (submod ".." fib)) (+ 0 0))
-
-  
-Program is safe
-
-|#

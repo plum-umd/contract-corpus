@@ -7,11 +7,3 @@
 
 (require 'f)
 (f 100))
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

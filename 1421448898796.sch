@@ -10,11 +10,3 @@
     (cond [(empty? (cdr xs)) (f (car xs))]
           [else (min (f (car xs))
                      (argmin f (cdr xs)))]))))
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

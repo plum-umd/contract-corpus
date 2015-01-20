@@ -5,11 +5,3 @@
     (lambda (n)
       (= (g n) (g n)))))
 )
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

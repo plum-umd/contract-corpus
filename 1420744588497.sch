@@ -11,10 +11,3 @@
 (foo 20)
 
 )
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

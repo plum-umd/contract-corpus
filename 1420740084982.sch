@@ -7,10 +7,3 @@
       [(empty? l) (list a)]
       [else (list (car l) (nest (cdr l) a))])))
 )
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

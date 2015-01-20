@@ -10,10 +10,3 @@
 
 (require ,fib)
 (f 2))
-
-#|Result:
-#<void>
-Parser: Unknown symbol f in module top-level
-  
-
-|#

@@ -6,10 +6,3 @@
   (define (len ls)
     (if (empty? ls) 0 (+ 1 (len (rest ls))))))
          )
-
-#|Result:
-#<void>
-Parser: Unknown symbol rest in module len
-  
-
-|#

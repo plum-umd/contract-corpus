@@ -7,11 +7,3 @@
   (provide
    (contract-out
     [fact (-> (>=/c 0) (>=/c 0))]))))
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

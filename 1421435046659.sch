@@ -11,11 +11,3 @@
 (total-length "hi" "bye")
 
 )
-
-#|Result:
-#<void>
-Parser: Unknown symbol total-length in module top-level
-  
-Program is safe
-
-|#

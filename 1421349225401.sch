@@ -16,20 +16,3 @@
 (module main racket
   (require (submod ".." argmin))
   (define x (argmin (lambda (x) 0+1i) (cons 1 (cons 1 empty))))))
-
-#|Result:
-#<void>
-Contract violation: 'argmin' violates 'min'.
-Value
- 0+1i
-violates predicate
- real?
-An example module that breaks it:
- (module user racket
-  (require (submod ".." argmin))
-  (argmin (λ (x) 0+1i) (cons 0.500 (cons 0.267 empty))))
-
-  
-Program is safe
-
-|#

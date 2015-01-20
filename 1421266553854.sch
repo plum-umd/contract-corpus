@@ -16,10 +16,3 @@
           (λ (x)
             (if (empty? (cdr x)) (car x) (f (cdr x))))))
      l))))
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

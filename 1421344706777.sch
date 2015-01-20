@@ -24,26 +24,3 @@
     (if (node? bt)
         (node (node-v bt) (insert (node-l bt) x) (node-r bt))
         (node x #f #f)))))
-
-#|Result:
-#<void>
-Contract violation: 'tree' violates its own contract.
-Value
- (node 0.715 (node 0.300 (node 0.736 #f #f) #f) #f)
-violates predicate
- (λ (x)
-  (or (false? x)
-      (and (node? x)
-           (braun-tree? (node-l x))
-           (braun-tree? (node-r x))
-           (let ((x₁ (size (node-l x))) (y (size (node-r x))))
-             (or (= x₁ y) (= x₁ (+ y 1)))))))
-An example module that breaks it:
- (module user racket
-  (require (submod ".." tree))
-  (insert (node 0.715 (node 0.300 #f #f) #f) 0.736))
-
-  
-Program is safe
-
-|#

@@ -11,18 +11,3 @@
           [else (add (sub1 a) (add1 b))]))
 
 ))
-
-#|Result:
-#<void>
-Contract violation: 'div' violates its own contract.
-Value
- 0
-violates predicate
- boolean?
-An example module that breaks it:
- (module user racket (require (submod ".." div)) (add 0 0))
-
-  
-Program is safe
-
-|#

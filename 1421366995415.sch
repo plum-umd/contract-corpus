@@ -38,11 +38,3 @@
 (define (main) (run 10000))
 (time (begin (main) (void)))
 )
-
-#|Result:
-#<void>
-Parser: Unknown symbol define in module top-level
-  
-Program is safe
-
-|#

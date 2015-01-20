@@ -10,10 +10,3 @@
 (require 'nest)
 (nest '(1 2 3) 's)
 )
-
-#|Result:
-#<void>
-Parser: Unknown symbol first in module nest
-  
-
-|#

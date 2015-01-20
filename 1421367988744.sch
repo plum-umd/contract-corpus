@@ -14,11 +14,3 @@
           [else (or (divides (car xs) x) (any-divides (cdr xs) x))]))
    
 ))
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

@@ -13,11 +13,3 @@
         (if (< b (f (car xs)))
             (argmin/acc f a b (cdr xs))
             (argmin/acc f (car xs) (f (car xs)) (cdr xs)))))))
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

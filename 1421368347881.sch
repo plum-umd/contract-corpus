@@ -13,11 +13,3 @@
 (define (divides a b) #t)
 
 ))
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

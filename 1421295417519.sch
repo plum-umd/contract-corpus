@@ -6,10 +6,3 @@
   (provide (contract-out [factorial (-> number? number?)])))
 
 (factorial 5))
-
-#|Result:
-#<void>
-Parser: Unknown symbol factorial in module top-level
-  
-
-|#

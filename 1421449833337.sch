@@ -14,11 +14,3 @@
             (argmin/a f a b (cdr xs))
             (argmin/a f (car xs) (f (car xs)) (cdr xs))))))
 )
-
-#|Result:
-#<void>
-Parser: Unknown symbol argmin/a in module argmin
-  
-Program is safe
-
-|#

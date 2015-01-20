@@ -21,19 +21,3 @@
         (while ((cur "get-child") (path "hd"))
           (path "hd" #;"tl"))
         cur))))
-
-#|Result:
-#<void>
-Contract violation: 'get-path' violates a contract in an application.
-Value
- "AgXhWwYvbwdDw"
-violates predicate
- procedure?
-An example module that breaks it:
- (module user racket
-  (require (submod ".." get-path))
-  (get-path (λ (x) (λ (x) (λ (x) any/c))) (λ (x) "AgXhWwYvbwdDw")))
-
-  
-
-|#

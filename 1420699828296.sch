@@ -4,11 +4,3 @@
 
 (define (f x) (lambda (y) (+ x y))))
 )
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

@@ -6,17 +6,3 @@
 (require 'f)
 (+ 1 2)
 (/ 1 0))
-
-#|Result:
-#<void>
-Contract violation: 'top-level' violates '/'.
-Value
- 0
-violates predicate
- (≠/c 0)
-An example module that breaks it:
- (module user racket (require (submod ".." top-level)) (top-level))
-
-  
-
-|#

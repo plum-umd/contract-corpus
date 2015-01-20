@@ -2,10 +2,3 @@
   (provide (contract-out [f (integer? . -> . integer?)]))
   (define (f n)
     (+ 1.0 (- 100 n)))))
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

@@ -5,10 +5,3 @@
   (define (makelist a b c)
     (cons a (cons b (cons c empty)))))
 )
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

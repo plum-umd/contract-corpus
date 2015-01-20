@@ -5,11 +5,3 @@
 
   (define (f x)
     (+ x y))))
-
-#|Result:
-#<void>
-Parser: Unknown symbol y in module f
-  
-Program is safe
-
-|#

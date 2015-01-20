@@ -16,11 +16,3 @@
   
   
 ))
-
-#|Result:
-#<void>
-Parser: Unknown symbol apply in module f
-  
-Program is safe
-
-|#

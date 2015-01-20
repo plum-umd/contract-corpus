@@ -20,11 +20,3 @@
   
   
 ))
-
-#|Result:
-#<void>
-Parser: Unknown symbol for/list in module f
-  
-Program is safe
-
-|#

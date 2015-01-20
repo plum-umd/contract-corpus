@@ -10,10 +10,3 @@
   
 (require 'fib)
 (fib 2))
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

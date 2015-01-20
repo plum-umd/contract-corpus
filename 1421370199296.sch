@@ -6,11 +6,3 @@
   
   (define (divides? a b)
     (divides? a (- b a)))))
-
-#|Result:
-#<void>
-with-limit: out of time
-  
-Program is safe
-
-|#

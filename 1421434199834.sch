@@ -10,11 +10,3 @@
 
 
 )
-
-#|Result:
-#<void>
-Parser: Unknown symbol >/c in module foo
-  
-Program is safe
-
-|#

@@ -10,11 +10,3 @@
     (cond [(empty? xs) 0]
           [else (add1 (length (cdr xs)))]))
 ))
-
-#|Result:
-#<void>
-Parser: Unknown symbol parametric/c-> in module div
-  
-Program is safe
-
-|#

@@ -16,11 +16,3 @@
   
   
 ))
-
-#|Result:
-#<void>
-Parser: Unknown symbol for/sum in module f
-  
-Program is safe
-
-|#

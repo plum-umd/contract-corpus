@@ -5,10 +5,3 @@
          	
   (define (len ls)
     (if (empty? ls) 0 (+ 1 (len (cdr ls)))))))
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

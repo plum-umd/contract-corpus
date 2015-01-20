@@ -4,11 +4,3 @@
   (define (f g)
     (λ (n)
       (= (g n) (g n))))))
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

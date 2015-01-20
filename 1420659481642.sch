@@ -3,10 +3,3 @@
   (define (f x)
     (if (integer? x) (+ x 5) 5)))
 )
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

@@ -5,11 +5,3 @@
   
   
 ))
-
-#|Result:
-#<void>
-Parser: Unknown symbol natural-number/c in module f
-  
-Program is safe
-
-|#

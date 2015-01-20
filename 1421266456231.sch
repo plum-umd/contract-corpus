@@ -16,17 +16,3 @@
           (λ (x)
             (if (empty? (cdr x)) (car x) (f (cdr x))))))
      l))))
-
-#|Result:
-#<void>
-Contract violation: 'last' violates 'cdr'.
-Value
- empty
-violates predicate
- cons?
-An example module that breaks it:
- (module user racket (require (submod ".." last)) (last empty))
-
-  
-
-|#

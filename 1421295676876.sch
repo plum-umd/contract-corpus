@@ -6,10 +6,3 @@
   (define (sqr n)
     (* n n)))
 )
-
-#|Result:
-#<void>
-
-Program is safe
-
-|#

@@ -6,18 +6,3 @@
   (define (sqr n)
     (* n n)))
 )
-
-#|Result:
-#<void>
-Contract violation: 'sqr' violates its own contract.
-Value
- 0
-violates predicate
- (>/c 0)
-An example module that breaks it:
- (module user racket (require (submod ".." sqr)) (sqr (• integer?)))
-
-  
-Program is safe
-
-|#

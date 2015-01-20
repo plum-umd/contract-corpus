@@ -4,11 +4,3 @@
     (if (>= 2 n)
         n
         (+ (fib (- n 1)) (fib (- n 2)))))))
-
-#|Result:
-#<void>
-with-limit: out of time
-  
-Program is safe
-
-|#

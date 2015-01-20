@@ -9,11 +9,3 @@
   (define (length xs)
     (cond [(empty? xs) 0]
           [else (add1 (length (cdr xs)))]))))
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

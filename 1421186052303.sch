@@ -9,11 +9,3 @@
       [(number? (car extra))
        (+ (string-length input) (car extra))]
       [else 0]))))
-
-#|Result:
-#<void>
-
-Program is safe
-Program is safe
-
-|#

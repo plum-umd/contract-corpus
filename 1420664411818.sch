@@ -19,10 +19,3 @@
 (equal? (gcd2 17 10) 1)
 (equal? (gcd2 60 10) 10)
 (equal? (gcd2 30 45) 15))
-
-#|Result:
-#<void>
-Parser: Unknown symbol define in module top-level
-  
-
-|#

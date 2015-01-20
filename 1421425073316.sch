@@ -7,13 +7,3 @@
 
 (require fib)
 (fib 2))
-
-#|Result:
-#<void>
-cadr: contract violation
-  expected: (cons/c any/c pair?)
-  given: 'fib
-  
-Program is safe
-
-|#
