@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide (contract-out 
             [f (-> number? number? real?)]))
 
@@ -6,4 +6,4 @@
     (+ x 9)))
 
 
-)
+

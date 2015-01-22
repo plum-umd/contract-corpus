@@ -1,4 +1,4 @@
-((module fact racket
+(module fact racket
   (define (factorial x)
     (if (zero? x)
         1
@@ -8,4 +8,4 @@
     [factorial (-> (lambda (x) (>= x 0)) 
                    (lambda (x) (>= x 0)))])))
                
-               )
+               

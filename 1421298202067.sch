@@ -1,4 +1,4 @@
-((module lib racket
+(module lib racket
   (provide
    (contract-out
     [path/c any/c]
@@ -20,4 +20,4 @@
     (if (and (not (false? path)) (not (false? cur)))
         (while ((cur "get-child") (path "hd"))
           (path "hd" #;"tl"))
-        cur))))
+        cur)))

@@ -1,4 +1,4 @@
-((module div racket
+(module div racket
   (provide (contract-out
                          [length (-> (listof positive?) positive?)]
                          ))
@@ -8,4 +8,4 @@
   
   (define (length xs)
     (cond [(empty? xs) 0]
-          [else (add1 (length (cdr xs)))]))))
+          [else (add1 (length (cdr xs)))])))

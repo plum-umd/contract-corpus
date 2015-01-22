@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide (contract-out [f (positive? . -> . positive?)]))
 
   (define (positive? x)
@@ -17,4 +17,4 @@
     (map (lambda (x) (add1 x)) '(1 2 3)))
   
   
-))
+)

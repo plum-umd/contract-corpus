@@ -1,4 +1,4 @@
-((module fact racket
+(module fact racket
   (define (factorial x)
     (if (zero? x)
         1
@@ -7,4 +7,4 @@
 
 (module a racket
   (require (submod ".." fact))
-(factorial 5)	))
+(factorial 5)	)

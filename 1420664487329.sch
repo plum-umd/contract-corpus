@@ -1,4 +1,4 @@
-((module gcd2 racket
+(module gcd2 racket
   (provide/contract [gcd2 (integer? integer? . -> . integer?)])
 (define (gcd2 a b)
   (cond
@@ -20,4 +20,4 @@
 (equal? (gcd2 10 17) 1)
 (equal? (gcd2 17 10) 1)
 (equal? (gcd2 60 10) 10)
-(equal? (gcd2 30 45) 15))
+(equal? (gcd2 30 45) 15)

@@ -1,4 +1,4 @@
-((module factorial racket
+(module factorial racket
   (define (fact x)
     (if (zero? x)
         1
@@ -6,4 +6,4 @@
   
   (provide
    (contract-out
-    [fact (-> (>=/c 0) (and/c integer? (>=/c 0)))]))))
+    [fact (-> (>=/c 0) (and/c integer? (>=/c 0)))])))

@@ -1,4 +1,4 @@
-((module argmin racket
+(module argmin racket
   (provide
     (contract-out
       [argmin ((any/c . -> . number?) (cons/c any/c (listof any/c)) . -> . any/c)]))
@@ -12,4 +12,4 @@
         a
         (if (< b (f (car xs)))
             (argmin/acc f a b (cdr xs))
-            (argmin/acc f (car xs) (f (car xs)) (cdr xs)))))))
+            (argmin/acc f (car xs) (f (car xs)) (cdr xs))))))

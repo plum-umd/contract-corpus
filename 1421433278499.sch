@@ -1,4 +1,4 @@
-((module fib racket
+(module fib racket
   (define (plus l r)
     (+ l r))
   (provide (contract-out [plus (real? (>/c 0) . -> . real?)]))
@@ -8,4 +8,4 @@
         1
         (plus (fib (- n 1)) (fib (- n 2))))))
 
-)
+

@@ -1,4 +1,4 @@
-((module min racket
+(module min racket
   (provide (contract-out [min (real? real? . -> . real?)]))
   (define (min x y)
     (if (< x y) x y)))
@@ -17,4 +17,4 @@
   (argmin (λ (x) 0+1i) (cons 0.873 (cons 0.072 empty))))
  
  (require 'user)
-)
+

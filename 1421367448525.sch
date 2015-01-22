@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide (contract-out [f (positive? . -> . positive?)]))
   (define (positive? x)
     (and (integer? x) (<= 0 x)))
@@ -10,4 +10,4 @@
       (+ (for/sum ([x threes]) x) (for/sum ([x fives])))))
   
   
-))
+)

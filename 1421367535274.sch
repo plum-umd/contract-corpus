@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide (contract-out [f (positive? . -> . positive?)]))
 
   (define (positive? x)
@@ -15,4 +15,4 @@
       (+ (apply + threes) (apply + fives))))
   
   
-))
+)

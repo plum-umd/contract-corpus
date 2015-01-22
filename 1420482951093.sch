@@ -1,4 +1,4 @@
-((module Y racket
+(module Y racket
   (provide/contract
    [Y (([any/c . -> . any/c] . -> . [any/c . -> . any/c]) . -> . [any/c . -> . any/c])])
   (define (Y f)
@@ -14,4 +14,4 @@
     ((Y (λ (f)
           (λ (x)
             (if (empty? (cdr x)) (car x) (f (cdr x))))))
-     l))))
+     l)))

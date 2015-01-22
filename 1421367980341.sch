@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide (contract-out [f (positive? . -> . positive?)]))
 
   (define (positive? x)
@@ -9,4 +9,4 @@
           [(< b a) #f]
           [else (divides a (- b a))]))
   
-))
+)

@@ -1,4 +1,4 @@
-((module fib racket
+(module fib racket
   (provide/contract [fib (integer? . -> . integer?)])
   ;; return the nth number in the Fibonacci sequence
   (define (fib n)
@@ -9,4 +9,4 @@
   
   
 (require 'fib)
-(fib 2))
+(fib 2)

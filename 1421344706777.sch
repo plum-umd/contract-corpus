@@ -1,4 +1,4 @@
-((module tree racket
+(module tree racket
   (provide
    (contract-out
     [braun-tree? (any/c . -> . boolean?)]
@@ -23,4 +23,4 @@
   (define (insert bt x)
     (if (node? bt)
         (node (node-v bt) (insert (node-l bt) x) (node-r bt))
-        (node x #f #f)))))
+        (node x #f #f))))

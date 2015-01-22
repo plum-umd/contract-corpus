@@ -1,4 +1,4 @@
-((module sqr racket
+(module sqr racket
   (define (positive? n) (> n 0))
   
   (define (sqr n) (* n n))
@@ -9,4 +9,4 @@
     [positive? (real? . -> . boolean?)])))
   
 
-)
+

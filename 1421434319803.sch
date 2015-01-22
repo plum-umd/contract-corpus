@@ -1,4 +1,4 @@
-((module foo racket
+(module foo racket
   (provide (contract-out [total-length (string? string? . -> . integer?)]))
   (define (total-length s1 s2)
     (+ (string-length s1)
@@ -8,4 +8,4 @@
 
 (require 'foo)
 (total-length "hi" "bye")
-)
+

@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide (contract-out [split-snd (-> string? string?)]))
   
   (define (substring x)
@@ -7,4 +7,4 @@
   (define (split-snd x)
     (substring x))
   
-))
+)

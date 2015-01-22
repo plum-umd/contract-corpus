@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide/contract
     [f (integer? . -> . integer?)])
 
@@ -10,4 +10,4 @@
 
 (require 'f)
 (f 98)
-)
+

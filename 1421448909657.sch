@@ -1,4 +1,4 @@
-((module min racket
+(module min racket
   (provide (contract-out [min (real? number? . -> . real?)])))
 
 (module argmin racket
@@ -9,4 +9,4 @@
   (define (argmin f xs)
     (cond [(empty? (cdr xs)) (f (car xs))]
           [else (min (f (car xs))
-                     (argmin f (cdr xs)))]))))
+                     (argmin f (cdr xs)))])))

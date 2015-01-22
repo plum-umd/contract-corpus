@@ -1,3 +1,3 @@
-((module f racket
+(module f racket
   (define v (/ 1 0)))
-(require 'f))
+(require 'f)

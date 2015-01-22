@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide (contract-out
                          [divides? (-> positive? positive? boolean?)]
                          ))
@@ -11,4 +11,4 @@
           [(< b a) #f]
           [else (divides? a (- b a))]))
 
-))
+)

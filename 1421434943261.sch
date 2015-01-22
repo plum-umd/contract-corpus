@@ -1,4 +1,4 @@
-((module foo racket
+(module foo racket
   (define (total-length s1 s2)
     (+ (string-length s1)
        (string-length s2)))
@@ -10,4 +10,4 @@
 (require 'foo) 
 (div2 5)
 
-)
+

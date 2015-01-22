@@ -1,4 +1,4 @@
-((module m racket
+(module m racket
 
   (provide/contract [f (any/c . -> . integer?)])
 
@@ -7,4 +7,4 @@
 
 
 
-)
+

@@ -1,4 +1,4 @@
-((module foo racket  
+(module foo racket  
 
   (provide (contract-out [foo (integer? . -> . (or/c boolean? string? integer?))]))
 
@@ -10,4 +10,4 @@
 (hello 4)
 (hello 20)
 
-)
+

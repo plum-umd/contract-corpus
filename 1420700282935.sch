@@ -1,3 +1,3 @@
-((module m racket
+(module m racket
   (provide (contract-out [x integer?]))
-  (define x 5)))
+  (define x 5))

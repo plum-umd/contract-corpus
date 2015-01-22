@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide (contract-out [f (integer? . -> . integer?)]))
   (define (f n)
     (if (= n 0) 
@@ -13,4 +13,4 @@
 
 ; (require 'f 'g)
 ; (g (f 100))
-)
+

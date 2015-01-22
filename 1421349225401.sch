@@ -1,4 +1,4 @@
-((module min racket
+(module min racket
   (provide (contract-out [min (real? real? . -> . real?)]))
   (define (min x y)
     (if (< x y) x y)))
@@ -15,4 +15,4 @@
 
 (module main racket
   (require (submod ".." argmin))
-  (define x (argmin (lambda (x) 0+1i) (cons 1 (cons 1 empty))))))
+  (define x (argmin (lambda (x) 0+1i) (cons 1 (cons 1 empty)))))

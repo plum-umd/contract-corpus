@@ -1,4 +1,4 @@
-((module factorial racket
+(module factorial racket
   (define (fact x)
     (if (zero? x)
         1
@@ -10,4 +10,4 @@
               (and/c integer? (>=/c 1223452345234234230)))])))
 
 (require 'factorial)
-(fact 4))
+(fact 4)

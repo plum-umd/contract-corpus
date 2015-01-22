@@ -1,4 +1,4 @@
-((module lastpair racket
+(module lastpair racket
   (provide/contract
    [lastpair (cons? . -> . cons?)])
   (define (lastpair x)
@@ -6,4 +6,4 @@
 
 (module user racket 
   (require (submod ".." lastpair))
-  (lastpair (cons 0.290 0.227))))
+  (lastpair (cons 0.290 0.227)))

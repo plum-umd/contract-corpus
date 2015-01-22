@@ -1,3 +1,3 @@
-((module m racket
+(module m racket
   (provide (contract-out [f ((integer? . -> . integer?) . -> . string?)]))
-  (define (f x) (x x))))
+  (define (f x) (x x)))

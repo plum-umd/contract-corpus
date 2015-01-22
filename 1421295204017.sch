@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide
    (contract-out
     [f ((or/c number? string?) cons? . -> . number?)]))
@@ -8,4 +8,4 @@
        (+ input (car extra))]
       [(number? (car extra))
        (+ (string-length input) (car extra))]
-      [else 0]))))
+      [else 0])))

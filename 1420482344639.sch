@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide/contract
    [f ((or/c number? string?) cons? . -> . number?)])
   (define (f input extra)
@@ -7,4 +7,4 @@
        (+ input (car extra))]
       [(number? (car extra))
        (+ (string-length input) (car extra))]
-      [else 0]))))
+      [else 0])))

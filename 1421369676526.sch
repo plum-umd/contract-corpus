@@ -1,4 +1,4 @@
-((module div racket
+(module div racket
   (provide (contract-out [divides? (-> positive? positive? boolean?)]))
 
   (define (positive? x)
@@ -8,4 +8,4 @@
     (if (= 0 b) #t
         (if (< b a) 
             #f
-            #f #;(divides? a (- b a)))))))
+            #f #;(divides? a (- b a))))))

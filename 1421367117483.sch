@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   
   (provide/contract [get-answer (-> natural-number/c natural-number/c)])
 
@@ -11,4 +11,4 @@
   (define (stream-merge-unique-ints a b)
     a)
   
-))
+)

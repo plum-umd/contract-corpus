@@ -1,4 +1,4 @@
-((module f racket
+(module f racket
   (provide (contract-out [f (-> (listof integer?) integer?)]))
   (define (f n)
-    (/ 1 (- 100 (car n))))))
+    (/ 1 (- 100 (car n)))))
