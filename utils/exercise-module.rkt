@@ -1,24 +1,55 @@
 #lang racket
 (require try-scv-racket/eval
+         racket/sandbox
+         syntax/parse
          "shared.rkt")
 
 ;; Sexpr -> Void
 (define (try-module m)
-  (match m
+  (define m1 (syntax->datum (hack-require-clause (datum->syntax #f m))))
+  (match m1
     [(list-rest 'module m-name 'racket _)
      (define ev (make-ev-rkt))
-     (ev m)  
+     (ev m1)  
      (define-values (vals stxs) (ev `(module->exports '',m-name)))
      (ev `(require ',m-name))
-     (for/list ([i (dict-ref (append vals stxs) 0)]) 
+     (for ([i (dict-ref (append vals stxs) 0)])
        (ev `(contract-exercise ,(car i))))]
     [_ (void)]))
 
-#;
-(for-each try-module
-          (read (open-input-file "../1420736099704.sch")))
-     
+;; Replace each `(submod ".." name)` with `'name`
+(define (hack-require-clause sexpr)
+  (define (replace stx)
+    (syntax-parse stx
+      [((~datum submod) ".." name) #'(quote name)]
+      [(f ...) (datum->syntax stx (map replace (syntax->list stx)))]
+      [x #'x]))
+  (replace sexpr))
 
-  
+;(define in (read-all "../1421287483111.sch"))
+;(define in (read-all "../1421366579407.sch"))
+;(define in (read-all "../1421287561184.sch"))
+;(define in (read-all "../test.sch"))
+;(define in (read-all "../1421295204017.sch"))
+
+;(try-module (first in))
+
+(define unsafe-modules '())
+
+(define (list-unsafe-modules path)
+  (for ([p (in-list (directory-list path #:build? #t))]
+        #:unless (directory-exists? p)
+        #:when (racket-file? p)
+        #:when (readable? p))
+    (with-handlers ([exn:fail:contract? (λ (x) (print p) (newline))]
+                    [exn:fail:out-of-memory? void]
+                    [exn:break? raise]
+                    [exn:fail:sandbox-terminated? void]
+                    [exn:fail:resource? void]
+                    [exn? print])
+      (for-each try-module (read-all p)))))
+
+(list-unsafe-modules "/home/clay/contract-corpus")
+
 
 
