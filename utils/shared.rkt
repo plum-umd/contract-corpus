@@ -31,5 +31,17 @@
              (set-union (set p)
                         (hash-ref t h (λ () mt)))))
 
+(define (update-table t h p)
+  (hash-set t
+            h
+            (set-union (set p)
+                       (hash-ref t h (λ () mt)))))
+
+(define (join-table t h p)
+  (hash-set t
+            h
+            (set-union p
+                       (hash-ref t h (λ () mt)))))
+
 
 
