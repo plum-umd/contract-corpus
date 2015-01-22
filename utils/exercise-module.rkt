@@ -17,15 +17,6 @@
        (ev `(contract-exercise ,(car i))))]
     [_ (void)]))
 
-;; Replace each `(submod ".." name)` with `'name`
-(define (hack-require-clause sexpr)
-  (define (replace stx)
-    (syntax-parse stx
-      [((~datum submod) ".." name) #'(quote name)]
-      [(f ...) (datum->syntax stx (map replace (syntax->list stx)))]
-      [x #'x]))
-  (replace sexpr))
-
 ;(define in (read-all "../1421287483111.sch"))
 ;(define in (read-all "../1421366579407.sch"))
 ;(define in (read-all "../1421287561184.sch"))
@@ -41,7 +32,7 @@
         #:unless (directory-exists? p)
         #:when (racket-file? p)
         #:when (readable? p))
-    (with-handlers ([exn:fail:contract? (λ (x) (print p) (newline))]
+    (with-handlers ([exn:fail:contract? (λ (x) (printf "~a~n" p))]
                     [exn:fail:out-of-memory? void]
                     [exn:break? raise]
                     [exn:fail:sandbox-terminated? void]
@@ -49,7 +40,9 @@
                     [exn? print])
       (for-each try-module (read-all p)))))
 
-(list-unsafe-modules "/home/clay/contract-corpus")
+;(list-unsafe-modules "/home/clay/contract-corpus")
+
+(list-unsafe-modules (current-directory))
 
 
 
