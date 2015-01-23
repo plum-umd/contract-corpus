@@ -1,8 +1,7 @@
 #lang racket
 (require try-scv-racket/eval
-         racket/sandbox
-         syntax/parse
-         "shared.rkt")
+	 racket/sandbox
+	 "shared.rkt")
 
 ;; Sexpr -> Void
 (define (try-module m)
@@ -10,39 +9,51 @@
   (match m1
     [(list-rest 'module m-name 'racket _)
      (define ev (make-ev-rkt))
-     (ev m1)  
+     (ev m1)
      (define-values (vals stxs) (ev `(module->exports '',m-name)))
      (ev `(require ',m-name))
      (for ([i (dict-ref (append vals stxs) 0)])
        (ev `(contract-exercise ,(car i))))]
     [_ (void)]))
 
-;(define in (read-all "../1421287483111.sch"))
-;(define in (read-all "../1421366579407.sch"))
-;(define in (read-all "../1421287561184.sch"))
-;(define in (read-all "../test.sch"))
-;(define in (read-all "../1421295204017.sch"))
 
-;(try-module (first in))
-
-(define unsafe-modules '())
+(define handle-contract-fail (make-parameter (λ (p) void)))
+(define handle-terminated    (make-parameter (λ (p) void)))
+(define handle-resource      (make-parameter (λ (p) void)))
+(define handle-fail          (make-parameter (λ (p) void)))
 
 (define (list-unsafe-modules path)
   (for ([p (in-list (directory-list path #:build? #t))]
-        #:unless (directory-exists? p)
-        #:when (racket-file? p)
-        #:when (readable? p))
-    (with-handlers ([exn:fail:contract? (λ (x) (printf "~a~n" p))]
-                    [exn:fail:out-of-memory? void]
-                    [exn:break? raise]
-                    [exn:fail:sandbox-terminated? void]
-                    [exn:fail:resource? void]
-                    [exn? print])
+	#:unless (directory-exists? p)
+	#:when (racket-file? p)
+	#:when (readable? p))
+    (with-handlers ([exn:fail:contract? ((handle-contract-fail) p)]
+		    ;; DVH: I don't think this should happen unless running in DrRacket
+		    #;[exn:fail:out-of-memory? (λ (x) (printf "~a~n" p))]
+		    [exn:break? raise]
+		    [exn:fail:sandbox-terminated? ((handle-terminated) p)]
+		    [exn:fail:resource? ((handle-resource) p)]
+		    [exn:fail? ((handle-fail) p)] ; covers `error`
+		    [exn? raise]) ; raise anything not covered
       (for-each try-module (read-all p)))))
 
-;(list-unsafe-modules "/home/clay/contract-corpus")
+(define show
+  (λ (p) (λ (_) (printf "~a~n" p))))
 
-(list-unsafe-modules (current-directory))
+(module* main #f
+  (command-line
+   #:multi
+   [("--error")
+    "Report contract"
+    (handle-fail show)]
+   [("--contract")
+    "Report contract"
+    (handle-contract-fail show)]
+   [("--timeout")
+    "Report out of time"
+    (handle-terminated show)]
+   [("--memory")
+    "Report out of memory"
+    (handle-resource show)])
 
-
-
+  (list-unsafe-modules (current-directory)))
