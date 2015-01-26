@@ -5,21 +5,6 @@
          soft-contract/check
          "shared.rkt")
 
-(define input
-  '((module min racket 
-      (provide/contract (min (-> real? real? real?)))
-      (define (min x y) 
-        (if (< x y) x y)))
-    (module argmin racket 
-      (provide/contract (argmin (-> (-> any/c number?) (cons/c any/c (listof any/c)) any/c)))
-      (require (submod ".." min))
-      (define (argmin f xs) 
-        (cond 
-          ((empty? (cdr xs)) 
-           (f (car xs))) 
-          (else (min (f (car xs)) 
-                     (argmin f (cdr xs)))))))))
-
 ;; try-module applies the evaluator to a module
 ;; Sexpr Ev -> Void
 (define (try-module ev m)
@@ -40,17 +25,18 @@
         #:when (racket-file? p)
         #:when (readable? p))
     (with-handlers ([exn:fail:contract:counterexample? ((handle-contract-counterexample) p)]
+                    [exn:fail:contract:maybe? ((handle-contract-maybe) p)]
+                    [exn:fail:contract? ((handle-contract-fail) p)]
                     ;; DVH: I don't think this should happen unless running in DrRacket
                     #;[exn:fail:out-of-memory? (λ (x) (printf "~a~n" p))]
                     [exn:break? raise]
                     [exn:fail:resource? ((handle-resource) p)]
-                    [exn:fail? (λ (x) (printf "~a ~a~n" p x))]
-                    ;[exn:fail? ((handle-fail) p)] ; covers `error`
-                    [exn? raise]) ; raise anything not covered
+                    [exn:fail? ((handle-fail) p)] ;covers error
+                    [exn? raise])
+      ; raise anything not covered
       ;; for each module in a file, create an instance of an ev
       ;; and use it to evaluate the module
       (for-each (λ (x) (begin (define ev (make-ev))
-                             ; (printf "~a~n" x)
                               (try-module ev (list x))))
                 (read-all p)))))
 
