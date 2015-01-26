@@ -1,11 +1,14 @@
-#lang racket
+#lang racket/base
 ;using try-scv-racket/evil as a temporary fix for bug
-(require try-scv-racket/ev
+(require racket/match
+         racket/dict
+         racket/cmdline
+         try-scv-racket/ev
          racket/sandbox
          syntax/parse
          "shared.rkt")
 
-;; Sexpr Ev -> Void
+;; Ev Sexpr -> Void
 (define (try-module ev m)
   (define m1 (syntax->datum (hack-require-clause (datum->syntax #f m))))
   (match m1
@@ -34,28 +37,27 @@
 		    [exn:fail:sandbox-terminated? ((handle-terminated) p)]
 		    [exn:fail:resource? ((handle-resource) p)]
 		    [exn:fail? ((handle-fail) p)] ; covers `error`
-		    [exn? (λ (x) (printf "~a~a~n" p))]) ; raise anything not covered
-      (for-each (λ (x) (begin (define ev (make-ev-rkt))
-                              (try-module ev x)))
-                (read-all p)))))
+		    [exn? (λ (x) (printf "~a~n" p))]) ; raise anything not covered
+      (for ([x (in-list (read-all p))])
+        (try-module (make-ev-rkt) x)))))
 
-(define show
-  (λ (p) (λ (_) (printf "~a~n" p))))
+(define (((show prefix) p) _)
+  (printf "~a: ~a~n" prefix p))
 
 (module* main #f
   (command-line
    #:multi
    [("--error")
     "Report contract"
-    (handle-fail show)]
+    (handle-fail (show 'fail))]
    [("--contract")
     "Report contract"
-    (handle-contract-fail show)]
+    (handle-contract-fail (show 'contract-violation))]
    [("--timeout")
     "Report out of time"
-    (handle-terminated show)]
+    (handle-terminated (show 'timeout))]
    [("--memory")
     "Report out of memory"
-    (handle-resource show)])
+    (handle-resource (show 'out-of-memory))])
 
   (list-unsafe-modules "/home/clay/contract-corpus/progs"))

@@ -1,12 +1,15 @@
-#lang racket
-(require try-scv-racket/evil
+#lang racket/base
+(require racket/match
+         racket/dict
+         racket/cmdline
+         try-scv-racket/ev
          racket/sandbox
          syntax/parse
          soft-contract/check
          "shared.rkt")
 
 ;; try-module applies the evaluator to a module
-;; Sexpr Ev -> Void
+;; Ev Sexpr -> Void
 (define (try-module ev m)
   (ev m))
 
@@ -36,34 +39,33 @@
       ; raise anything not covered
       ;; for each module in a file, create an instance of an ev
       ;; and use it to evaluate the module
-      (for-each (λ (x) (begin (define ev (make-ev))
-                              (try-module ev (list x))))
-                (read-all p)))))
+      (for ([x (in-list (read-all p))])
+        (try-module (make-ev) (list x))))))
 
-(define show
-  (λ (p) (λ (_) (printf "~a~n" p))))
+(define (((show prefix) p) _)
+  (printf "~a: ~a~n" prefix p))
 
 (module* main #f
   (command-line
    #:multi
    [("--counterexample")
     "Report counterexample found"
-    (handle-contract-counterexample show)]
+    (handle-contract-counterexample (show 'counterexample))]
    [("--maybe")
     "Report maybe counterexample found"
-    (handle-contract-maybe show)]
+    (handle-contract-maybe (show 'maybe))]
    [("--error")
     "Report errors"
-    (handle-fail show)]
+    (handle-fail (show 'fail))]
    [("--contract")
     "Report contract"
-    (handle-contract-fail show)]
+    (handle-contract-fail (show 'contract-violation))]
    [("--timeout")
     "Report out of time"
-    (handle-terminated show)]
+    (handle-terminated (show 'timeout))]
    [("--memory")
     "Report out of memory"
-    (handle-resource show)])
+    (handle-resource (show 'out-of-memory))])
   
   (list-unsafe-modules "/home/clay/contract-corpus/progs"))
 
