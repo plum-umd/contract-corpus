@@ -1,5 +1,5 @@
 #lang racket/base
-;using try-scv-racket/evil as a temporary fix for bug
+;using try-scv-racket/ev as a temporary fix for bug
 (require racket/match
          racket/dict
          racket/cmdline
@@ -38,8 +38,9 @@
 		    [exn:fail:resource? ((handle-resource) p)]
 		    [exn:fail? ((handle-fail) p)] ; covers `error`
 		    [exn? (λ (x) (printf "~a~n" p))]) ; raise anything not covered
+      (define ev (make-ev-rkt))
       (for ([x (in-list (read-all p))])
-        (try-module (make-ev-rkt) x)))))
+        (try-module ev x)))))
 
 (define (((show prefix) p) _)
   (printf "~a: ~a~n" prefix p))
